@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(a);
+        var a = 10;
+        function a() {
+            console.log(123);
+        }
+        console.log(a);
+        // function 声明 和 赋值 都会提升
+        // var 声明 提升
+        // var a
+        // function a() {
+        // console.log(123);
+        // }
+        // console.log(a);
+        // a = 10
+        // console.log(a)
+        var x = 1,
+            y = 0,
+            z = 0;
+        function add(x) {
+            return (x = x + 1);
+        }
+        y = add(x);
+        console.log(y)
+        function add(x) {
+            return (x = x + 3);
+        }
+        z = add(x);
+        console.log(z)
+        foo1();
+        // 函数声明
+        function foo1() { }
+        foo2()
+        // 函数表达式
+        var foo2 = function () { }
+    </script>
+</body>
+
+</html>
