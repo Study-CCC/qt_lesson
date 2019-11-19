@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <img src="./assets/QQ图片20191116103314.jpg" alt="">
       <router-link to="/login">登录</router-link>
         <router-link to="/">首页</router-link>
         <router-view></router-view>
@@ -14,5 +15,10 @@ export default {
   }
 };
 </script>
-<style lang='' scoped>
+<style>
+body{
+  height: 500px;
+  background: red;
+  color: #000;
+}
 </style>
