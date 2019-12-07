@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = [1, 2, 3];
+        // a[1] = 10 数组的索引也会改变内容
+        // a.push(4);
+        // //1保存原来的push
+        // var oldPush = Array.prototype.push;
+        // //2
+        // Array.prototype.push = function () {
+        //     console.log('change');
+        //     //3恢复
+        //     oldPush();
+        // }
+        // Proxy();
+        let pArr = new Proxy(a, {
+            get: function (target, key, receiver) {
+                console.log('get');
+                // 3 恢复
+                return Reflect.get(target, key, receiver)
+            },
+            set: function (target,key,value,receiver) {
+                console.log('set');
+                return Reflect.set(target,key,value,receiver)
+            }
+        })
+        pArr.push(99);
+        /**
+        执行了两次set跟get，先改变了了len len=pArr.length
+        */
+        // div p {} 先查找p再查找div，效率的提高
+    </script>
+</body>
+
+</html>
